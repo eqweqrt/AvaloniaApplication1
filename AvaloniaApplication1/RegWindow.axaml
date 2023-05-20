@@ -1,0 +1,47 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Width="300" Height="500"
+        x:Class="AvaloniaApplication1.RegWindow"
+        Title="Registration">
+    <StackPanel Orientation="Vertical"
+                Margin="20">
+        <TextBox Name="LoginTBox"
+                 Watermark="Enter Login"
+                 Margin="0 0 0 20"/>
+        <TextBox Name="PasswordTBox"
+                 Watermark="Enter Password"
+                 Margin="0 0 0 20"/>
+        <TextBox Name="PasswordRepeatTBox"
+                 Watermark="Repeat Password"
+                 Margin="0 0 0 20"/>
+        <TextBox Name="NameTBox"
+                 Watermark="Enter Name"
+                 Margin="0 0 0 20"/>
+        <TextBox Name="SurnameTBox"
+                 Watermark="Enter Surname"
+                 Margin="0 0 0 20"/>
+        <TextBox Name="PhonenumberTBox"
+                 Watermark="Enter Phone number"
+                 Margin="0 0 0 20"/>
+        <DatePicker Name="BirthdateDPicker"
+                 Margin="0 0 0 10"/>
+        <TextBlock Name="InfoTBlock"
+                   HorizontalAlignment="Center"
+                   Margin="0 0 0 10"/>
+        <Button Content="Add"
+                Name="AddBtn"
+                Click="AddBtn_OnClick"
+                Width="200"
+                HorizontalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Margin="0 0 0 10"/>
+        <Button Content="Close"
+                Name="CloseBtn"
+                Click="CloseBtn_OnClick"
+                Width="200"
+                HorizontalAlignment="Center"
+                HorizontalContentAlignment="Center"/>
+    </StackPanel>
+</Window>

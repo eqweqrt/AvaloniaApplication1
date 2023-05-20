@@ -1,0 +1,24 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Width="750" Height="400"
+        x:Class="AvaloniaApplication1.UsersWindow"
+        Title="Users" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DataGrid Name="UsersDGrid"
+                  AutoGenerateColumns="False"
+                  ColumnWidth="*"
+                  CanUserResizeColumns="False"
+                  CanUserReorderColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Surname" Binding="{Binding Surname}"/>
+                <DataGridTextColumn Header="PhoneNumber" Binding="{Binding PhoneNumber}"/>
+                <DataGridTextColumn Header="Birthdate" Binding="{Binding Birthdate}"/>
+                <DataGridTextColumn Header="Login" Binding="{Binding Login}"/>
+                <DataGridTextColumn Header="Role" Binding="{Binding IdRoleNavigation.Name}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

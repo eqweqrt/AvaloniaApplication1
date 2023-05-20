@@ -1,0 +1,22 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Width="800" Height="450"
+        x:Class="AvaloniaApplication1.EditUserWindow"
+        Title="EditUser">
+        <StackPanel>
+                <TextBox Text="{Binding Login}" Margin="10" Watermark="Login"/>
+                <TextBox Text="{Binding Password}" Margin="10" Watermark="Password"/>
+                <Button Content="Accept"
+                        Name="AcceptBtn"
+                        Click="AcceptBtn_OnClick"
+                        Width="125"
+                        HorizontalContentAlignment="Center"/>
+                <Button Content="Save"
+                        Name="SaveBtn"
+                        Click="SaveBtn_OnClick"
+                        Width="125"
+                        HorizontalContentAlignment="Center"/>
+        </StackPanel>
+</Window>
