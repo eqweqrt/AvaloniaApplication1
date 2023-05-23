@@ -5,6 +5,9 @@
         mc:Ignorable="d" Width="750" Height="500"
         x:Class="AvaloniaApplication1.AdminWindow"
         Title="Admin" WindowStartupLocation="CenterScreen">
+    <Window.Styles>
+        <StyleInclude Source="/Styles/style1.axaml" />
+    </Window.Styles>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -24,7 +27,10 @@
         <Button Grid.Column="1" Content="Edit"
                 Name="EditBtn"
                 Click="EditBtn_OnClick"/>
-        
+        <Button Grid.Column="10" Content="Exit"
+                Classes="ButtonStyle"
+                Name="ExitBtn"
+                Click="ExitAdminBtn_OnClick"/>
         <DataGrid Name="UsersDGrid"
                   AutoGenerateColumns="False"
                   ColumnWidth="*"

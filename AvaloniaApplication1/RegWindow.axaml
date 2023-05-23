@@ -2,35 +2,49 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" Width="300" Height="500"
+        mc:Ignorable="d" Width="300" Height="550"
         x:Class="AvaloniaApplication1.RegWindow"
-        Title="Registration">
+        Title="Registration" Background="#1c1c1c">
+    <Window.Styles>
+        <StyleInclude Source="/Styles/style1.axaml" />
+    </Window.Styles>
     <StackPanel Orientation="Vertical"
+                Classes="StackPanelStyle"
                 Margin="20">
         <TextBox Name="LoginTBox"
+                 Classes="TextBoxStyle"
                  Watermark="Enter Login"
                  Margin="0 0 0 20"/>
         <TextBox Name="PasswordTBox"
+                 Classes="TextBoxStyle"
                  Watermark="Enter Password"
                  Margin="0 0 0 20"/>
         <TextBox Name="PasswordRepeatTBox"
+                 Classes="TextBoxStyle"
                  Watermark="Repeat Password"
                  Margin="0 0 0 20"/>
         <TextBox Name="NameTBox"
+                 Classes="TextBoxStyle"
                  Watermark="Enter Name"
                  Margin="0 0 0 20"/>
         <TextBox Name="SurnameTBox"
+                 Classes="TextBoxStyle"
                  Watermark="Enter Surname"
                  Margin="0 0 0 20"/>
         <TextBox Name="PhonenumberTBox"
+                 Classes="TextBoxStyle"
                  Watermark="Enter Phone number"
                  Margin="0 0 0 20"/>
         <DatePicker Name="BirthdateDPicker"
+                    Background="White"
+                    CornerRadius="10"
                  Margin="0 0 0 10"/>
         <TextBlock Name="InfoTBlock"
+                   Classes="TextBoxStyle"
                    HorizontalAlignment="Center"
                    Margin="0 0 0 10"/>
         <Button Content="Add"
+                Classes="ButtonStyle"
                 Name="AddBtn"
                 Click="AddBtn_OnClick"
                 Width="200"
@@ -38,6 +52,7 @@
                 HorizontalContentAlignment="Center"
                 Margin="0 0 0 10"/>
         <Button Content="Close"
+                Classes="ButtonStyle"
                 Name="CloseBtn"
                 Click="CloseBtn_OnClick"
                 Width="200"

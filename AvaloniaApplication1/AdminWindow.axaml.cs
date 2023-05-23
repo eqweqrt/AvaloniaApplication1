@@ -41,16 +41,16 @@ public partial class AdminWindow : Window
         }
     }
     
-    private void EditBtn_OnClick(object sender, RoutedEventArgs e)
+    private async void EditBtn_OnClick(object sender, RoutedEventArgs e)
     {
-        User selectedUser = (User)UsersDGrid.SelectedItem;
+        User selectedUser = (User)this.FindControl<DataGrid>("UsersDGrid").SelectedItem;
 
-        EditUserWindow editUserWindow = new EditUserWindow(selectedUser);
-        
-        bool? result = true;//editUserWindow.ShowDialog();
+        await new EditUserWindow(selectedUser).ShowDialog(this);
+        LoadData();
+        //bool? result = true;//editUserWindow.ShowDialog();
 
 
-        if (result == true)
+        /*if (result == true)
         {
             User editedUser = editUserWindow.EditedUser;
 
@@ -58,7 +58,11 @@ public partial class AdminWindow : Window
             Service.GetContext().SaveChanges();
 
             LoadData();
-        }
+        }*/
     }
-    
+
+    private void ExitAdminBtn_OnClick(object? sender, RoutedEventArgs e)
+    {
+        Close();
+    }
 }

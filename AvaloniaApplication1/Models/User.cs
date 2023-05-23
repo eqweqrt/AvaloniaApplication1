@@ -19,7 +19,7 @@ public partial class User
 
     public string Password { get; set; } = null!;
 
-    public int? IdRole { get; set; }
+    public int IdRole { get; set; }
 
     public virtual Role? IdRoleNavigation { get; set; }
     // idRoleNavigation.name

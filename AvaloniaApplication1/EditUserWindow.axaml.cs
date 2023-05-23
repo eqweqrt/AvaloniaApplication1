@@ -2,6 +2,7 @@
 using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Templates;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using AvaloniaApplication1.Models;
@@ -12,38 +13,28 @@ namespace AvaloniaApplication1;
 public partial class EditUserWindow : Window
 {
     public User SelectedUser { get; set; }
-    public TextBox NameTextBox { get; set; }
-    public TextBox SurnameTextBox { get; set; }
-    public TextBox PhoneNumberTextBox { get; set; }
-    public TextBox BirthdatePicker { get; set; }
-    public TextBox LoginTextBox { get; set; }
-    public TextBox RoleComboBox { get; set; }
+    private TextBox LoginTBox;
+    private TextBox PasswordTBox;
+    private TextBox PhoneNumberTBox;
+    private DatePicker BirthdateDatePicker;
+    private TextBox NameTBox;
+    private TextBox SurnameTBox;
 
-    public Grid MainGrid { get; set; }
-    public object SelectedItem { get; set; }
-    public DateTime? SelectedDate { get; set; }
-    
     public EditUserWindow(User selectedUser)
     {
         InitializeComponent();
-
+        LoginTBox = this.FindControl<TextBox>("LoginTextBox");
+        PasswordTBox = this.FindControl<TextBox>("PasswordTextBox");
+        PhoneNumberTBox = this.FindControl<TextBox>("PhoneNumberTextBox");
+        BirthdateDatePicker = this.FindControl<DatePicker>("BirthdateDatePickerEdit");
+        NameTBox = this.FindControl<TextBox>("NameTextBox");
+        SurnameTBox = this.FindControl<TextBox>("SurnameTextBox");
         SelectedUser = selectedUser;
-        
-        NameTextBox = new TextBox();
-        NameTextBox.Text = selectedUser.Name;
-        Grid.SetColumn(NameTextBox, 1);
-        Grid.SetRow(NameTextBox, 0);
-        MainGrid.Children.Add(NameTextBox);
+
+        LoginTBox.Text=SelectedUser.Login;
 
     }
-    /*public EditUserWindow(User? user)
-    {
-        InitializeComponent();
-        
-#if DEBUG
-        this.AttachDevTools();
-#endif
-    }*/
+    
 
     private void InitializeComponent()
     {
@@ -74,22 +65,20 @@ public partial class EditUserWindow : Window
 
     private void SaveBtn_OnClick(object sender, RoutedEventArgs e)
     {
-        User editedUser = new User
-        {
-            Id = SelectedUser.Id,
-            Name = NameTextBox.Text,
-            Surname = SurnameTextBox.Text,
-            PhoneNumber = PhoneNumberTextBox.Text,
-           // Birthdate = BirthdatePicker.SelectedDate.Value,
-            Login = LoginTextBox.Text,
-            //IdRole = ((Role)RoleComboBox.SelectedItem).Id
-        };
-        
-        EditedUser = editedUser;
-        
+        SelectedUser.Login = LoginTBox.Text;
+        SelectedUser.Password = PasswordTBox.Text;
+        SelectedUser.PhoneNumber = PhoneNumberTBox.Text;
+        //SelectedUser.Birthdate = BirthdateDatePicker.DateTime.ToString("d/M/yy");
+        SelectedUser.Name = NameTBox.Text;
+        SelectedUser.Surname = SurnameTBox.Text;
+
+        Service.GetContext().SaveChanges();
+
         Close();
     }
-    
-    
-    
+
+    private void ExitEditBtn_OnClick(object? sender, RoutedEventArgs e)
+    {
+        Close();
+    }
 }

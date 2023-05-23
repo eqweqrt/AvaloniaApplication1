@@ -5,18 +5,31 @@
         mc:Ignorable="d" Width="800" Height="450"
         x:Class="AvaloniaApplication1.EditUserWindow"
         Title="EditUser">
-        <StackPanel>
-                <TextBox Text="{Binding Login}" Margin="10" Watermark="Login"/>
-                <TextBox Text="{Binding Password}" Margin="10" Watermark="Password"/>
-                <Button Content="Accept"
-                        Name="AcceptBtn"
-                        Click="AcceptBtn_OnClick"
-                        Width="125"
-                        HorizontalContentAlignment="Center"/>
-                <Button Content="Save"
-                        Name="SaveBtn"
-                        Click="SaveBtn_OnClick"
-                        Width="125"
-                        HorizontalContentAlignment="Center"/>
+        <Window.Styles>
+                <StyleInclude Source="/Styles/style1.axaml" />
+        </Window.Styles>
+        <StackPanel Classes="StackPanelStyle" >
+                <TextBox Name="LoginTextBox" Margin="10" Watermark="Login" Classes="TextBoxStyle"/>
+                <TextBox Name="PasswordTextBox" Margin="10" Watermark="Password" Classes="TextBoxStyle"/>
+                <TextBox Name="PhoneNumberTextBox" Margin="10" Watermark="PhoneNumber" Classes="TextBoxStyle"/>
+                <DatePicker Name="BirthdateDatePickerEdit" Margin="10" Classes="TextBoxStyle"/>
+                <TextBox Name="NameTextBox" Margin="10" Watermark="Name" Classes="TextBoxStyle"/>
+                <TextBox Name="SurnameTextBox" Margin="10" Watermark="SurName" Classes="TextBoxStyle"/>
+                
+                <StackPanel Orientation="Horizontal">
+                        <Button  Content="Save" 
+                                 Classes="ButtonStyle"
+                                 Name="SaveBtn"
+                                 Click="SaveBtn_OnClick"
+                                 HorizontalContentAlignment="Center"
+                                 Width="125"/>
+                        <Button Content="Exit"
+                                Classes="ButtonStyle"
+                                Name="ExitBtn"
+                                Width="125"
+                                HorizontalContentAlignment="Center"
+                                Click="ExitEditBtn_OnClick"/>
+                </StackPanel>
         </StackPanel>
+        
 </Window>
