@@ -21,16 +21,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Content="Delete"
-                Name="DeleteBtn"
-                Click="DeleteBtn_OnClick"/>
-        <Button Grid.Column="1" Content="Edit"
-                Name="EditBtn"
-                Click="EditBtn_OnClick"/>
-        <Button Grid.Column="10" Content="Exit"
-                Classes="ButtonStyle"
-                Name="ExitBtn"
-                Click="ExitAdminBtn_OnClick"/>
+        
         <DataGrid Name="UsersDGrid"
                   AutoGenerateColumns="False"
                   ColumnWidth="*"
@@ -47,5 +38,20 @@
                 <DataGridTextColumn Header="Role" Binding="{Binding IdRoleNavigation.Name}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Delete"
+                    Margin="10"
+                    Name="DeleteBtn"
+                    Click="DeleteBtn_OnClick"/>
+            <Button  Content="Edit"
+                     Margin="10"
+                    Name="EditBtn"
+                    Click="EditBtn_OnClick"/>
+            <Button Content="Exit"
+                    Margin="500,10,10,10"
+                    HorizontalAlignment="Right"
+                    Name="ExitBtn"
+                    Click="ExitAdminBtn_OnClick"/>
+        </StackPanel>
     </Grid>
 </Window>
