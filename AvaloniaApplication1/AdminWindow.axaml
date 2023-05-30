@@ -22,7 +22,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         
-        <DataGrid Name="UsersDGrid"
+        <DataGrid Name="UsersDGrid" Classes="GridStyle"
                   AutoGenerateColumns="False"
                   ColumnWidth="*"
                   CanUserResizeColumns="False"
@@ -38,7 +38,8 @@
                 <DataGridTextColumn Header="Role" Binding="{Binding IdRoleNavigation.Name}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" >
+            
             <Button Content="Delete"
                     Margin="10"
                     Name="DeleteBtn"

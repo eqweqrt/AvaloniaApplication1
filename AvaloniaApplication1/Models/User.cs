@@ -1,5 +1,14 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
+using System;
+using System.Linq;
+using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Controls.Templates;
+using Avalonia.Interactivity;
+using Avalonia.Markup.Xaml;
+using AvaloniaApplication1.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace AvaloniaApplication1.Models;
 

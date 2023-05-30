@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Linq;
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Controls.Templates;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using AvaloniaApplication1.Models;
 using Microsoft.EntityFrameworkCore;
+
 
 namespace AvaloniaApplication1;
 
@@ -30,12 +29,16 @@ public partial class EditUserWindow : Window
         NameTBox = this.FindControl<TextBox>("NameTextBox");
         SurnameTBox = this.FindControl<TextBox>("SurnameTextBox");
         SelectedUser = selectedUser;
+        DateTime dateTime = DateTime.Parse(SelectedUser.Birthdate);
 
         LoginTBox.Text=SelectedUser.Login;
-
+        PasswordTBox.Text = SelectedUser.Password;
+        PhoneNumberTBox.Text = SelectedUser.PhoneNumber;
+        BirthdateDatePicker.SelectedDate = dateTime;
+        NameTBox.Text = SelectedUser.Name;
+        SurnameTBox.Text = SelectedUser.Surname;
     }
     
-
     private void InitializeComponent()
     {
         AvaloniaXamlLoader.Load(this);
@@ -43,18 +46,6 @@ public partial class EditUserWindow : Window
     public EditUserWindow()
     {
         InitializeComponent();
-    }
-
-    private void AcceptBtn_OnClick(object? sender, RoutedEventArgs e)
-    {
-        DataGrid userSelected = this.FindControl<DataGrid>("UsersDGrid");
-
-        if (userSelected.SelectedItem != null)
-        {
-            Service.GetContext().SaveChanges();
-            LoadData();
-            Close();
-        }
     }
 
     void LoadData()
@@ -68,12 +59,13 @@ public partial class EditUserWindow : Window
         SelectedUser.Login = LoginTBox.Text;
         SelectedUser.Password = PasswordTBox.Text;
         SelectedUser.PhoneNumber = PhoneNumberTBox.Text;
-        //SelectedUser.Birthdate = BirthdateDatePicker.DateTime.ToString("d/M/yy");
+        SelectedUser.Birthdate = BirthdateDatePicker.SelectedDate.Value.DateTime.ToString("d/M/yy");
         SelectedUser.Name = NameTBox.Text;
         SelectedUser.Surname = SurnameTBox.Text;
 
+        Console.Write(BirthdateDatePicker);
         Service.GetContext().SaveChanges();
-
+       // LoadData();
         Close();
     }
 
